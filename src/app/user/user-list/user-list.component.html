@@ -1,3 +1,18 @@
-<div *ngFor="let user of users">
-<h2>{{user.first_name}}</h2>
+
+<div class="container">
+    <h2> Users List</h2>
+   
+    <div  fxLayout="row wrap" fxLayoutGap="50px grid" >
+        <div *ngFor="let user of filterService.filteredUsers">
+            <mat-card class="user-card">
+                <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
+                <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+                <img mat-card-image src={{user.avatar}}>
+                <mat-card-content>
+                  
+                </mat-card-content>
+               
+              </mat-card></div>
+        
+    </div>
 </div>
