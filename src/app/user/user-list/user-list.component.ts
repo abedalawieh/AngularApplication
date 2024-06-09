@@ -11,14 +11,20 @@ import { FilterService } from 'src/app/filter.service';
 export class UserListComponent implements OnInit {
   users:User[]=[];
   filteredUsers:User[]=[];
+  loading: boolean = false;
+
 
   constructor(private userService:UserService, public filterService: FilterService){}
   ngOnInit(): void {
+      this.loading=true;
+
     this.userService.getUsers().subscribe(data => {
       this.filterService.users = data.data;
       this.filterService.filteredUsers = data.data;
       
     });
+    this.loading=false;
+
   }
 
 

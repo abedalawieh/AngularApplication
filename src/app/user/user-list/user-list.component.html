@@ -1,5 +1,5 @@
 
-<div class="container">
+<div *ngIf="!loading" class="container">
     <h2> Users List</h2>
    
     <div  fxLayout="row wrap" fxLayoutGap="50px grid" >
@@ -20,3 +20,6 @@
         
     </div>
 </div>
+<div *ngIf="loading" style="margin: 10% 50%;">
+    <app-spinner></app-spinner>
+   </div>    

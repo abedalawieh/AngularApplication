@@ -16,16 +16,20 @@ UserDetailsComponent implements OnInit{
     last_name:"",
     avatar:""
   }
+  loading: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private userService: UserService
   ) {}
  async ngOnInit(): Promise<void> {
+  this.loading=true;
     const id = this.route.snapshot.paramMap.get('id');
    await this.userService.getUser(Number(id)).subscribe(data => {
       this.user = data.data;
 
     }); 
+    this.loading=false;
  }
 
 }
