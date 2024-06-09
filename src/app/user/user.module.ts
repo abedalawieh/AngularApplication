@@ -7,6 +7,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpCacheService } from '../http-cache.service';
+import { SpinnerComponent } from '../spinner/spinner.component';
+
 
 
 
@@ -20,7 +24,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     MatCardModule,
     FlexModule,
     MatInputModule,
-    MatButtonModule,RouterModule
-  ]
+    MatButtonModule,RouterModule,
+    SpinnerComponent
+  ],
+  providers:[{provide:HTTP_INTERCEPTORS,useClass:HttpCacheService,multi:true}]
 })
 export class UserModule { }
