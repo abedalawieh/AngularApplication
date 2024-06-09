@@ -14,5 +14,9 @@ private apiUrl = environment.apiUrl
       const response = this.http.get<any>(this.apiUrl)
       return response;
   }
+  getUser(id: number): Observable<any> {
+    const response = this.http.get<any>(`${this.apiUrl}/${id}`);
+    return response;
+}
 
 }
